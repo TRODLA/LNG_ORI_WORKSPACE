@@ -21,4 +21,4 @@ USER 1001
 
 EXPOSE 8501
 
-CMD ["streamlit", "run", "app.py", "--server.address=0.0.0.0", "--server.port=8501"]
+CMD ["streamlit", "run", "lng_ori_workspace.py", "--server.address=0.0.0.0", "--server.port=8501"]
