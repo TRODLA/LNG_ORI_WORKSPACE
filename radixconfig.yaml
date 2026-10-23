@@ -2,7 +2,7 @@ apiVersion: radix.equinor.com/v1
 kind: RadixApplication
 
 metadata:
-  name: lng_ori_workspace     # 👈 must be lowercase, no spaces
+  name: lng-ori-workspace     # 👈 must be lowercase, no spaces
 
 spec:
   environments:
