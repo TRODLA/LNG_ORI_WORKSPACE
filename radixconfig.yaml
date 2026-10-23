@@ -36,17 +36,17 @@ spec:
           replicas: 1
           resources:
             requests:
-              memory: "16384Mi"
-              cpu: "1000m"
+              memory: "512Mi"
+              cpu: "200m"
             limits:
-              memory: "16384Mi"
-              cpu: "1000m"
+              memory: "512Mi"
+              cpu: "200m"
         - environment: prod
           replicas: 2
           resources:
             requests:
-              memory: "16384Mi"
-              cpu: "1000m"
+              memory: "512Mi"
+              cpu: "200m"
             limits:
-              memory: "16384Mi"
-              cpu: "1000m"
+              memory: "512Mi"
+              cpu: "200m"
