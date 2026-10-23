@@ -1,25 +1,12 @@
 FROM python:3.12-slim
-
-RUN useradd -u 1001 -m appuser
-
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
-
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 WORKDIR /app
-
-COPY requirements.txt .
-
-RUN python -m pip install --no-cache-dir --upgrade pip setuptools wheel \
-    && python -m pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-RUN chown -R 1001:1001 /app
-
-USER 1001
-
+COPY requirements-radix.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt \
+    && groupadd --gid 1001 appgroup \
+    && useradd --uid 1001 --gid 1001 --no-create-home appuser \
+    && chown 1001:1001 /app
+COPY --chown=1001:1001 lng_ori_workspace_radix.py /app/lng_ori_workspace_radix.py
+USER 1001:1001
 EXPOSE 8501
-
-CMD ["streamlit", "run", "lng_ori_workspace.py", \
-     "--server.address=0.0.0.0", \
-     "--server.port=8501"]
+CMD ["python", "-u", "/app/lng_ori_workspace_radix.py"]
