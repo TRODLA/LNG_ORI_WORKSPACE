@@ -3,12 +3,3 @@ pandas
 numpy
 plotly
 openpyxl
-argparse
-ast
-base64
-json
-os
-Path
-runpy
-sys
-zlib
